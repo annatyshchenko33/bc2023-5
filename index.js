@@ -14,6 +14,18 @@ app.use(express.static(staticFolderPath));
 
 let notes = [];
 
+fs.access(notesFilePath)
+  .then(() => console.log('notes.json file exists'))
+  .catch(async () => {
+    console.log('Creating notes.json file...');
+    try {
+      await fs.writeFile(notesFilePath, '[]', 'utf8');
+      console.log('notes.json file created');
+    } catch (error) {
+      console.error('Error creating notes.json file:', error.message);
+    }
+  });
+
 app.get('/notes', async (req, res) => {
   try {
     const data = await fs.readFile(notesFilePath, 'utf-8');
