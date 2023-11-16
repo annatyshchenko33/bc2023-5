@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "abadf10b-137c-4fc6-a7b7-d7b35e108a79",
+		"_postman_id": "1d67751d-0e72-42dd-ae84-e0325d5b638b",
 		"name": "collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30941730"
@@ -54,18 +54,18 @@
 					"formdata": [
 						{
 							"key": "note_name",
-							"value": "note1",
+							"value": "note2",
 							"type": "text"
 						},
 						{
 							"key": "note",
-							"value": "345",
+							"value": "542578",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8000/upload",
+					"raw": "http://localhost:8000/upload?note_name=note1&note=56785",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -73,6 +73,16 @@
 					"port": "8000",
 					"path": [
 						"upload"
+					],
+					"query": [
+						{
+							"key": "note_name",
+							"value": "note1"
+						},
+						{
+							"key": "note",
+							"value": "56785"
+						}
 					]
 				}
 			},
@@ -84,7 +94,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/notes/note1",
+					"raw": "http://localhost:8000/notes/note2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -92,7 +102,7 @@
 					"port": "8000",
 					"path": [
 						"notes",
-						"note1"
+						"note2"
 					]
 				}
 			},
@@ -105,15 +115,10 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"note\": \"Updated)\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "Updated"
 				},
 				"url": {
-					"raw": "http://localhost:8000/notes/note1",
+					"raw": "http://localhost:8000/notes/note2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -121,7 +126,7 @@
 					"port": "8000",
 					"path": [
 						"notes",
-						"note1"
+						"note2"
 					]
 				}
 			},
