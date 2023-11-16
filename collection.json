@@ -65,7 +65,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8000/upload?note_name=note1&note=56785",
+					"raw": "http://localhost:8000/upload",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -73,16 +73,6 @@
 					"port": "8000",
 					"path": [
 						"upload"
-					],
-					"query": [
-						{
-							"key": "note_name",
-							"value": "note1"
-						},
-						{
-							"key": "note",
-							"value": "56785"
-						}
 					]
 				}
 			},
@@ -138,7 +128,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/notes/note1",
+					"raw": "http://localhost:8000/notes/note2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -146,7 +136,7 @@
 					"port": "8000",
 					"path": [
 						"notes",
-						"note1"
+						"note2"
 					]
 				}
 			},
