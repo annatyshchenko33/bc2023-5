@@ -14,6 +14,8 @@ app.use(express.static(staticFolderPath));
 
 let notes = [];
 
+// Якщо файл існує, виводиться повідомлення "notes.json file exists"
+// Якщо файл не існує, створюється файл notes.json з пустим масивом []
 fs.access(notesFilePath)
   .then(() => console.log('notes.json file exists'))
   .catch(async () => {
@@ -31,7 +33,7 @@ app.get('/notes', async (req, res) => {
     const data = await fs.readFile(notesFilePath, 'utf-8');
     notes = JSON.parse(data);
     
-    // Check if the notes array is empty
+     // Перевірка, чи масив нотаток порожній
     if (notes.length === 0) {
       res.json([]);
     } else {
@@ -50,11 +52,11 @@ app.get('/UploadForm.html', (req, res) => {
 app.get('/notes/:note_name', async (req, res) => {
   try {
     const data = await fs.readFile(notesFilePath, 'utf-8');
-    const getnotes = JSON.parse(data);
+    notes = JSON.parse(data);
     const noteName = req.params.note_name;
-    const note = getnotes.find((note) => note.note_name === noteName);
+    const note = notes.find((note) => note.note_name === noteName);
     if (note) {
-      res.json({ note_name: note.note_name, note: note.note });
+      res.send(note.note);
     } else {
       res.status(404).send('Note not found');
     }
